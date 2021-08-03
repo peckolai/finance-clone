@@ -1,14 +1,26 @@
-.finance {
-  display: inline-block;
-  font-family: 'Product Sans',Arial,sans-serif;
+.nav-item {
+  letter-spacing: .01785714em;
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    font-size: .875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    color: #3c4043;
+    padding: 2px 8px;
+    cursor: pointer;
+    border-radius: 12px;
+    width: min-content;
+    float: left;
+    white-space: nowrap;
 };
 .navbar-brand {
+  display: inline-block;
   font-size: 22px;
   line-height: 24px;
   padding-left: 8px;
   position: relative;
-  top: -1.5px;
   vertical-align: middle;
+  font-weight: 700;
+  font-family: 'Product Sans',Arial,sans-serif;
 }
 header {
   height: 70px;
@@ -27,4 +39,45 @@ header {
   text-decoration: none;
   color: black;
   vertical-align: middle;
+}
+
+.cls-1 {
+  transform: translate(0 8);
+  font-size: 28px;
+  color:#00aeef;
+  font-family:ProductSans-Regular, Product Sans;
+}
+.cls-2{
+  letter-spacing:0em;
+}
+.cls-3{
+  color:#ed1c24;
+  letter-spacing:0em;
+}
+.cls-4{
+  color:#fff200;
+  letter-spacing:0em;
+}
+.cls-5{
+  color:#00a651;
+}
+
+.compare {
+  letter-spacing: .07272727em;
+  font-family: Roboto,Arial,sans-serif;
+  font-size: .6875rem;
+  font-weight: 500;
+  line-height: 1rem;
+  text-transform: uppercase;
+  color: #3c4043;
+  margin-right: 8px;
+  margin-top: 3px;
+  white-space: nowrap;
+  display: flex;
+  -webkit-box-align: center;
+  box-align: center;
+  align-items: center;
+}
+div {
+  display: block;
 }
