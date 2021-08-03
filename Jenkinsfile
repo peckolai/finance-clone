@@ -1,9 +1,10 @@
 pipeline {
-  agent { docker { image 'ruby:2.7.0' } }
+  agent any 
   stages {
     stage('test') {
       steps {
-        sh 'ruby --version'
+        sh 'rubocop'
+	sh 'rspec'
         }
       }
     }
