@@ -14,9 +14,9 @@ jobs:
         with:
           bundler-cache: true
       - name: Run RuboCop
-        run: bundle exec rubocop --format json --out rubocop.json || true
+        run: bundle exec rubocop --parallel --format json --out rubocop.json || true
       - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@master
+        uses: SonarSource/sonarcloud-github-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
