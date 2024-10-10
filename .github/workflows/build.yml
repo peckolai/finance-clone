@@ -21,7 +21,7 @@ jobs:
       - name: Run RuboCop
         run: |
           if [ -s modified_files.txt ]; then
-            rubocop $(cat modified_files.txt | grep '\.rb$') --format json --out rubocop.json || true
+            bundle exec rubocop $(cat modified_files.txt | grep '\.rb$') --format json --out rubocop.json || true
           else
             echo "No Ruby files modified in this PR."
           fi
