@@ -33,11 +33,4 @@ jobs:
             -Dsonar.ruby.rubocop.reportPaths=rubocop.json
             -Dsonar.java.binaries=target/classes
             -Dsonar.exclusions=vendor/**
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: >
-            -Dsonar.ruby.rubocop.reportPaths=rubocop.json
-            -Dsonar.exclusions=./vednor/**
+      
