@@ -25,6 +25,15 @@ jobs:
           else
             echo "No Ruby files modified in this PR."
           fi
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+      - name: Compile Java
+        run: |
+          mkdir -p target/classes
+          javac -Xlint:none -d target/classes $(find . -name "*.java") || true
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
@@ -32,5 +41,6 @@ jobs:
         with:
           args: >
             -Dsonar.ruby.rubocop.reportPaths=rubocop.json
-            -Dsonar.exclusions=./vendor/**
+            -Dsonar.java.binaries=target/classes
+            -Dsonar.exclusions=vendor/**
       
