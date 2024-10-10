@@ -22,4 +22,3 @@ jobs:
         with:
           args: >
             -Dsonar.ruby.rubocop.reportPaths=rubocop.json
-            -Dsonar.exclusions=**/*.java
