@@ -14,11 +14,10 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+          fetch-depth: 0
       - run: bundle exec rubocop --format json --out rubocop.json || true
-      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
