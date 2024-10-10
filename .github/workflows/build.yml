@@ -15,6 +15,24 @@ jobs:
           bundler-cache: true
       - name: Run RuboCop
         run: bundle exec rubocop --parallel --format json --out rubocop.json || true
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+      - name: Compile Java
+        run: |
+          mkdir -p target/classes
+          javac -Xlint:none -d target/classes $(find . -name "*.java") || true
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.ruby.rubocop.reportPaths=rubocop.json
+            -Dsonar.java.binaries=target/classes
+            -Dsonar.exclusions=vendor/**
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
