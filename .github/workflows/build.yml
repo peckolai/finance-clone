@@ -20,6 +20,7 @@ jobs:
           git diff --name-only origin/${{ github.event.pull_request.base.ref }} > modified_files.txt
       - name: Run RuboCop
         run: |
+          echo $GITHUB_REPOSITORY
           if [ -s modified_files.txt ]; then
             bundle exec rubocop $(cat modified_files.txt | grep '\.rb$') --format json --out rubocop.json || true
           else
@@ -36,6 +37,8 @@ jobs:
           javac -Xlint:none -d target/classes $(find . -name "*.java") || true
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
             -Dsonar.ruby.rubocop.reportPaths=rubocop.json
