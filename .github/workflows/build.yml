@@ -20,7 +20,7 @@ jobs:
           git diff --name-only origin/${{ github.event.pull_request.base.ref }} > modified_files.txt
       - name: Run RuboCop
         run: |
-          echo $GITHUB_REPOSITORY
+          echo $SONAR_TOKEN
           if [ -s modified_files.txt ]; then
             bundle exec rubocop $(cat modified_files.txt | grep '\.rb$') --format json --out rubocop.json || true
           else
