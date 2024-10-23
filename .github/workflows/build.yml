@@ -20,13 +20,14 @@ jobs:
           git diff --name-only origin/${{ github.event.pull_request.base.ref }} > modified_files.txt
       - name: Run RuboCop
         run: |
+          echo $SONAR_TOKEN
           if [ -s modified_files.txt ]; then
             bundle exec rubocop $(cat modified_files.txt | grep '\.rb$') --format json --out rubocop.json || true
           else
             echo "No Ruby files modified in this PR."
           fi
       - name: Setup Java
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v4
         with:
           distribution: 'adopt'
           java-version: '11'
