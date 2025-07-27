@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.6'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
+# Bundle edge Rails instead: gem 'rails', '>= 7.2.1.1', github: 'rails/rails', branch: 'main'
 gem 'rails'
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -12,7 +12,7 @@ gem 'puma'
 # Use SCSS for stylesheets
 gem 'sass-rails'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '<= 5.3.2'
+gem 'webpacker', '~> 5.4'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -21,7 +21,7 @@ gem 'jbuilder'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'solargraph'
+gem 'solargraph', '>= 0.51.0'
 gem 'rubocop'
 gem 'rubocop-rails'
 
