@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.6'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
+# Bundle edge Rails instead: gem 'rails', '>= 7.2.2.2', github: 'rails/rails', branch: 'main'
 gem 'rails'
 # Use postgresql as the database for Active Record
 gem 'pg'
